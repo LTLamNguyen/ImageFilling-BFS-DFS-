@@ -1,1 +1,1 @@
-# CPSC221PA2
+# BFS and DFS on images
