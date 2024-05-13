@@ -73,53 +73,53 @@ PNG testColorPicker(ColorPicker& picker)
     return img;
 }
 
-// TEST_CASE("colorPicker::basic solid","[weight=0][part=colorPicker]"){
+TEST_CASE("colorPicker::basic solid","[weight=0][part=colorPicker]"){
 
-//     cout << "Entered colorPicker::basic solid..." << endl;
+    cout << "Entered colorPicker::basic solid..." << endl;
 
-//     RGBAPixel px(0, 255, 0); // green
-//     SolidColorPicker solidPicker(px);
+    RGBAPixel px(0, 255, 0); // green
+    SolidColorPicker solidPicker(px);
 
-//     PNG result = testColorPicker(solidPicker);// result.convert();
-//     result.writeToFile("images-output/solidColorPickerTest.png");
-//     PNG expected; expected.readFromFile("images-soln/ex-solidColorPickerTest.png");
-//     REQUIRE(result == expected);
+    PNG result = testColorPicker(solidPicker);// result.convert();
+    result.writeToFile("images-output/solidColorPickerTest.png");
+    PNG expected; expected.readFromFile("images-soln/ex-solidColorPickerTest.png");
+    REQUIRE(result == expected);
     
-//     cout << "Leaving colorPicker::basic solid..." << endl;
-// }
+    cout << "Leaving colorPicker::basic solid..." << endl;
+}
 
-// TEST_CASE("colorPicker::basic stripe","[weight=1][part=colorPicker]"){
+TEST_CASE("colorPicker::basic stripe","[weight=1][part=colorPicker]"){
 
-//     cout << "Entered colorPicker::basic stripe..." << endl;
+    cout << "Entered colorPicker::basic stripe..." << endl;
 
-//     PNG imgtest, imgother;
-//     imgtest.readFromFile(STRIPETESTIMAGE);
+    PNG imgtest, imgother;
+    imgtest.readFromFile(STRIPETESTIMAGE);
 
-//     StripeColorPicker stripePicker(STRIPEWIDTH, RGBAPixel(255, 96, 96), RGBAPixel(255, 196, 196));
+    StripeColorPicker stripePicker(STRIPEWIDTH, RGBAPixel(255, 96, 96), RGBAPixel(255, 196, 196));
 
-//     PNG result = testColorPicker(stripePicker);// result.convert();
-//     result.writeToFile("images-output/stripeColorPickerTest.png");
-//     PNG expected; expected.readFromFile("images-soln/ex-stripeColorPickerTest.png");
-//     REQUIRE(result == expected);
+    PNG result = testColorPicker(stripePicker);// result.convert();
+    result.writeToFile("images-output/stripeColorPickerTest.png");
+    PNG expected; expected.readFromFile("images-soln/ex-stripeColorPickerTest.png");
+    REQUIRE(result == expected);
 
-//     cout << "Leaving colorPicker::basic stripe..." << endl;
-// }
+    cout << "Leaving colorPicker::basic stripe..." << endl;
+}
 
-// TEST_CASE("colorPicker::basic quarter","[weight=1][part=colorPicker]"){
+TEST_CASE("colorPicker::basic quarter","[weight=1][part=colorPicker]"){
     
-//     cout << "Entered colorPicker::basic quarter..." << endl;
+    cout << "Entered colorPicker::basic quarter..." << endl;
 
-//     PNG imgtest;
-//     imgtest.readFromFile(FUNCTORTESTIMAGEP);
+    PNG imgtest;
+    imgtest.readFromFile(FUNCTORTESTIMAGEP);
 
-//     QuarterColorPicker quarterPicker(imgtest, QUARTERBRIGHT);
+    QuarterColorPicker quarterPicker(imgtest, QUARTERBRIGHT);
 
-//     PNG result = testColorPicker(quarterPicker);// result.convert();
-//     result.writeToFile("images-output/quarterColorPickerTest.png");
-//     PNG expected; expected.readFromFile("images-soln/ex-quarterColorPickerTest.png");// expected.convert();
-//     REQUIRE(result == expected);
-//     cout << "Leaving colorPicker::basic quarter..." << endl;
-// }
+    PNG result = testColorPicker(quarterPicker);// result.convert();
+    result.writeToFile("images-output/quarterColorPickerTest.png");
+    PNG expected; expected.readFromFile("images-soln/ex-quarterColorPickerTest.png");// expected.convert();
+    REQUIRE(result == expected);
+    cout << "Leaving colorPicker::basic quarter..." << endl;
+}
 
 TEST_CASE("colorPicker::basic border", "[weight=1][part=colorPicker]") {
   
@@ -138,160 +138,160 @@ TEST_CASE("colorPicker::basic border", "[weight=1][part=colorPicker]") {
     cout << "Leaving colorPicker::basic border..." << endl;
 }
 
-// TEST_CASE("fill::basic solid dfs","[weight=1][part=fill]"){
+TEST_CASE("fill::basic solid dfs","[weight=1][part=fill]"){
     
-//     cout << "Entered fill::basic solid dfs..." << endl;
+    cout << "Entered fill::basic solid dfs..." << endl;
 
-//     RGBAPixel px(188, 212, 174);
-//     SolidColorPicker solidPicker(px);
+    RGBAPixel px(188, 212, 174);
+    SolidColorPicker solidPicker(px);
 
-//     filler::FillerConfig solidconfig;
-//     solidconfig.img.readFromFile(SOLIDTESTIMAGE);
-//     solidconfig.frameFreq = SOLIDFRAMEFREQ;
-//     solidconfig.tolerance = SOLIDTOLERANCE;
-//     solidconfig.seedpoint = PixelPoint(SOLIDX, SOLIDY, *solidconfig.img.getPixel(SOLIDX,SOLIDY));
-//     solidconfig.picker = &solidPicker;
+    filler::FillerConfig solidconfig;
+    solidconfig.img.readFromFile(SOLIDTESTIMAGE);
+    solidconfig.frameFreq = SOLIDFRAMEFREQ;
+    solidconfig.tolerance = SOLIDTOLERANCE;
+    solidconfig.seedpoint = PixelPoint(SOLIDX, SOLIDY, *solidconfig.img.getPixel(SOLIDX,SOLIDY));
+    solidconfig.picker = &solidPicker;
 
-//     animation anim;
-//     anim = filler::FillDFS(solidconfig);
-//     PNG result = anim.write("images-output/dfssolid.gif");//  result.convert();
-//     result.writeToFile("images-output/dfssolid.png");
+    animation anim;
+    anim = filler::FillDFS(solidconfig);
+    PNG result = anim.write("images-output/dfssolid.gif");//  result.convert();
+    result.writeToFile("images-output/dfssolid.png");
 
-//     PNG expected; expected.readFromFile("images-soln/ex-dfssolid.png");
-//     REQUIRE(result==expected);
+    PNG expected; expected.readFromFile("images-soln/ex-dfssolid.png");
+    REQUIRE(result==expected);
 
-//     cout << "Leaving fill::basic solid dfs..." << endl;
-// }
+    cout << "Leaving fill::basic solid dfs..." << endl;
+}
 
 
-// TEST_CASE("fill::basic solid bfs","[weight=1][part=fill]"){
+TEST_CASE("fill::basic solid bfs","[weight=1][part=fill]"){
     
-//     cout << "Entered fill::basic solid bfs..." << endl;
+    cout << "Entered fill::basic solid bfs..." << endl;
 
-//     RGBAPixel px(188, 212, 174);
-//     SolidColorPicker solidPicker(px);
+    RGBAPixel px(188, 212, 174);
+    SolidColorPicker solidPicker(px);
 
-//     filler::FillerConfig solidconfig;
-//     solidconfig.img.readFromFile(SOLIDTESTIMAGE);
-//     solidconfig.frameFreq = SOLIDFRAMEFREQ;
-//     solidconfig.tolerance = SOLIDTOLERANCE;
-//     solidconfig.seedpoint = PixelPoint(SOLIDX, SOLIDY, *solidconfig.img.getPixel(SOLIDX, SOLIDY));
-//     solidconfig.picker = &solidPicker;
+    filler::FillerConfig solidconfig;
+    solidconfig.img.readFromFile(SOLIDTESTIMAGE);
+    solidconfig.frameFreq = SOLIDFRAMEFREQ;
+    solidconfig.tolerance = SOLIDTOLERANCE;
+    solidconfig.seedpoint = PixelPoint(SOLIDX, SOLIDY, *solidconfig.img.getPixel(SOLIDX, SOLIDY));
+    solidconfig.picker = &solidPicker;
 
-//     animation anim;
-//     anim = filler::FillBFS(solidconfig);
-//     PNG result = anim.write("images-output/bfssolid.gif");// result.convert();
-//     result.writeToFile("images-output/bfssolid.png");
+    animation anim;
+    anim = filler::FillBFS(solidconfig);
+    PNG result = anim.write("images-output/bfssolid.gif");// result.convert();
+    result.writeToFile("images-output/bfssolid.png");
 
-//     PNG expected; expected.readFromFile("images-soln/ex-bfssolid.png");
-//     REQUIRE(result==expected);
+    PNG expected; expected.readFromFile("images-soln/ex-bfssolid.png");
+    REQUIRE(result==expected);
 
-//     cout << "Leaving fill::basic solid bfs..." << endl;
-// }
+    cout << "Leaving fill::basic solid bfs..." << endl;
+}
 
-// TEST_CASE("fill::basic stripe dfs", "[weight=1][part=fill]") {
+TEST_CASE("fill::basic stripe dfs", "[weight=1][part=fill]") {
     
-//     cout << "Entered fill::basic stripe dfs..." << endl;
+    cout << "Entered fill::basic stripe dfs..." << endl;
 
-//     PNG stripetest;
-//     stripetest.readFromFile(STRIPETESTIMAGE);
-//     StripeColorPicker stripePicker(STRIPEWIDTH, RGBAPixel(255, 96, 96), RGBAPixel(255, 196, 196));
+    PNG stripetest;
+    stripetest.readFromFile(STRIPETESTIMAGE);
+    StripeColorPicker stripePicker(STRIPEWIDTH, RGBAPixel(255, 96, 96), RGBAPixel(255, 196, 196));
 
-//     filler::FillerConfig stripeconfig;
-//     stripeconfig.img = stripetest;
-//     stripeconfig.frameFreq = STRIPEFRAMEFREQ;
-//     stripeconfig.tolerance = STRIPETOLERANCE;
-//     stripeconfig.seedpoint = PixelPoint(STRIPEX, STRIPEY, *stripeconfig.img.getPixel(STRIPEX, STRIPEY));
-//     stripeconfig.picker = &stripePicker;
+    filler::FillerConfig stripeconfig;
+    stripeconfig.img = stripetest;
+    stripeconfig.frameFreq = STRIPEFRAMEFREQ;
+    stripeconfig.tolerance = STRIPETOLERANCE;
+    stripeconfig.seedpoint = PixelPoint(STRIPEX, STRIPEY, *stripeconfig.img.getPixel(STRIPEX, STRIPEY));
+    stripeconfig.picker = &stripePicker;
 
-//     animation anim;
-//     anim = filler::FillDFS(stripeconfig);
-//     PNG result = anim.write("images-output/dfsstripe.gif");// result.convert();
-//     result.writeToFile("images-output/dfsstripe.png");
+    animation anim;
+    anim = filler::FillDFS(stripeconfig);
+    PNG result = anim.write("images-output/dfsstripe.gif");// result.convert();
+    result.writeToFile("images-output/dfsstripe.png");
 
-//     PNG expected; expected.readFromFile("images-soln/ex-dfsstripe.png");
-//     REQUIRE(result == expected);
+    PNG expected; expected.readFromFile("images-soln/ex-dfsstripe.png");
+    REQUIRE(result == expected);
 
-//     cout << "Leaving fill::basic stripe dfs..." << endl;
-// }
+    cout << "Leaving fill::basic stripe dfs..." << endl;
+}
 
-// TEST_CASE("fill::basic stripe bfs", "[weight=1][part=fill]") {
+TEST_CASE("fill::basic stripe bfs", "[weight=1][part=fill]") {
   
-//     cout << "Entered fill::basic stripe bfs..." << endl;
+    cout << "Entered fill::basic stripe bfs..." << endl;
 
-//     PNG stripetest;
-//     stripetest.readFromFile(STRIPETESTIMAGE);
-//     StripeColorPicker stripePicker(STRIPEWIDTH, RGBAPixel(255, 96, 96), RGBAPixel(255, 196, 196));
+    PNG stripetest;
+    stripetest.readFromFile(STRIPETESTIMAGE);
+    StripeColorPicker stripePicker(STRIPEWIDTH, RGBAPixel(255, 96, 96), RGBAPixel(255, 196, 196));
 
-//     filler::FillerConfig stripeconfig;
-//     stripeconfig.img = stripetest;
-//     stripeconfig.frameFreq = STRIPEFRAMEFREQ;
-//     stripeconfig.tolerance = STRIPETOLERANCE;
-//     stripeconfig.seedpoint = PixelPoint(STRIPEX, STRIPEY, *stripeconfig.img.getPixel(STRIPEX, STRIPEY));
-//     stripeconfig.picker = &stripePicker;
+    filler::FillerConfig stripeconfig;
+    stripeconfig.img = stripetest;
+    stripeconfig.frameFreq = STRIPEFRAMEFREQ;
+    stripeconfig.tolerance = STRIPETOLERANCE;
+    stripeconfig.seedpoint = PixelPoint(STRIPEX, STRIPEY, *stripeconfig.img.getPixel(STRIPEX, STRIPEY));
+    stripeconfig.picker = &stripePicker;
 
-//     animation anim;
-//     anim = filler::FillBFS(stripeconfig);
-//     PNG result = anim.write("images-output/bfsstripe.gif");// result.convert();
-//     result.writeToFile("images-output/bfsstripe.png");
+    animation anim;
+    anim = filler::FillBFS(stripeconfig);
+    PNG result = anim.write("images-output/bfsstripe.gif");// result.convert();
+    result.writeToFile("images-output/bfsstripe.png");
 
-//     PNG expected; expected.readFromFile("images-soln/ex-bfsstripe.png");
-//     REQUIRE(result == expected);
+    PNG expected; expected.readFromFile("images-soln/ex-bfsstripe.png");
+    REQUIRE(result == expected);
 
-//     cout << "Leaving fill::basic stripe bfs..." << endl;
-// }
+    cout << "Leaving fill::basic stripe bfs..." << endl;
+}
 
-// TEST_CASE("fill::basic quarter dfs","[weight=1][part=fill]"){
+TEST_CASE("fill::basic quarter dfs","[weight=1][part=fill]"){
     
-//     cout << "Entered fill::basic quarter dfs..." << endl;
+    cout << "Entered fill::basic quarter dfs..." << endl;
 
-//     PNG quartertest;
-//     quartertest.readFromFile(QUARTERTESTIMAGE);
-//     QuarterColorPicker quarterPicker(quartertest, QUARTERBRIGHT);
+    PNG quartertest;
+    quartertest.readFromFile(QUARTERTESTIMAGE);
+    QuarterColorPicker quarterPicker(quartertest, QUARTERBRIGHT);
 
-//     filler::FillerConfig quarterconfig;
-//     quarterconfig.img = quartertest;
-//     quarterconfig.frameFreq = QUARTERFRAMEFREQ;
-//     quarterconfig.tolerance = QUARTERTOLERANCE;
-//     quarterconfig.seedpoint = PixelPoint(QUARTERX, QUARTERY, *quarterconfig.img.getPixel(QUARTERX, QUARTERY));
-//     quarterconfig.picker = &quarterPicker;
+    filler::FillerConfig quarterconfig;
+    quarterconfig.img = quartertest;
+    quarterconfig.frameFreq = QUARTERFRAMEFREQ;
+    quarterconfig.tolerance = QUARTERTOLERANCE;
+    quarterconfig.seedpoint = PixelPoint(QUARTERX, QUARTERY, *quarterconfig.img.getPixel(QUARTERX, QUARTERY));
+    quarterconfig.picker = &quarterPicker;
 
-//     animation anim;
-//     anim = filler::FillDFS(quarterconfig);
-//     PNG result = anim.write("images-output/dfsquarter.gif");// result.convert();
-//     result.writeToFile("images-output/dfsquarter.png");
+    animation anim;
+    anim = filler::FillDFS(quarterconfig);
+    PNG result = anim.write("images-output/dfsquarter.gif");// result.convert();
+    result.writeToFile("images-output/dfsquarter.png");
 
-//     PNG expected; expected.readFromFile("images-soln/ex-dfsquarter.png");
-//     REQUIRE(result==expected);
+    PNG expected; expected.readFromFile("images-soln/ex-dfsquarter.png");
+    REQUIRE(result==expected);
 
-//     cout << "Leaving fill::basic quarter dfs..." << endl;
-// }
+    cout << "Leaving fill::basic quarter dfs..." << endl;
+}
 
-// TEST_CASE("fill::basic quarter bfs","[weight=1][part=fill]"){
+TEST_CASE("fill::basic quarter bfs","[weight=1][part=fill]"){
     
-//     cout << "Entered fill::basic quarter bfs..." << endl;
+    cout << "Entered fill::basic quarter bfs..." << endl;
 
-//     PNG quartertest;
-//     quartertest.readFromFile(QUARTERTESTIMAGE);
-//     QuarterColorPicker quarterPicker(quartertest, QUARTERBRIGHT);
+    PNG quartertest;
+    quartertest.readFromFile(QUARTERTESTIMAGE);
+    QuarterColorPicker quarterPicker(quartertest, QUARTERBRIGHT);
 
-//     filler::FillerConfig quarterconfig;
-//     quarterconfig.img = quartertest;
-//     quarterconfig.frameFreq = QUARTERFRAMEFREQ;
-//     quarterconfig.tolerance = QUARTERTOLERANCE;
-//     quarterconfig.seedpoint = PixelPoint(QUARTERX, QUARTERY, *quarterconfig.img.getPixel(QUARTERX, QUARTERY));
-//     quarterconfig.picker = &quarterPicker;
+    filler::FillerConfig quarterconfig;
+    quarterconfig.img = quartertest;
+    quarterconfig.frameFreq = QUARTERFRAMEFREQ;
+    quarterconfig.tolerance = QUARTERTOLERANCE;
+    quarterconfig.seedpoint = PixelPoint(QUARTERX, QUARTERY, *quarterconfig.img.getPixel(QUARTERX, QUARTERY));
+    quarterconfig.picker = &quarterPicker;
 
-//     animation anim;
-//     anim = filler::FillBFS(quarterconfig);
-//     PNG result = anim.write("images-output/bfsquarter.gif");// result.convert();
-//     result.writeToFile("images-output/bfsquarter.png");
+    animation anim;
+    anim = filler::FillBFS(quarterconfig);
+    PNG result = anim.write("images-output/bfsquarter.gif");// result.convert();
+    result.writeToFile("images-output/bfsquarter.png");
 
-//     PNG expected; expected.readFromFile("images-soln/ex-bfsquarter.png");
-//     REQUIRE(result == expected);
+    PNG expected; expected.readFromFile("images-soln/ex-bfsquarter.png");
+    REQUIRE(result == expected);
 
-//     cout << "Leaving fill::basic quarter bfs..." << endl;
-// }
+    cout << "Leaving fill::basic quarter bfs..." << endl;
+}
 
 TEST_CASE("fill::basic border dfs","[weight=1][part=fill]"){
   
